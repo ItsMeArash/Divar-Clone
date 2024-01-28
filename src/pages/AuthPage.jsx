@@ -9,7 +9,7 @@ const AuthPage = () => {
 
     return (
         <div>
-            {isSent === 1 ? (
+            {isSent ? (
                 <CheckOtpForm />
             ) : (
                 <SendOtpForm
