@@ -10,7 +10,12 @@ const AuthPage = () => {
     return (
         <div>
             {isSent ? (
-                <CheckOtpForm />
+                <CheckOtpForm
+                    code={code}
+                    setCode={setCode}
+                    mobile={mobile}
+                    setIsSent={setIsSent}
+                />
             ) : (
                 <SendOtpForm
                     setIsSent={setIsSent}

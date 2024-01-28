@@ -8,7 +8,6 @@ const SendOtpForm = ({ mobile, setMobile, setIsSent }) => {
         // @Todo more complicated validation logic
 
         const { response, error } = await sendOtp(mobile);
-        // console.log({ response, error });
         if (response?.status === 200) setIsSent(true);
         if (error) console.log(error.response.data.message);
     };
