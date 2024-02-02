@@ -9,8 +9,13 @@ import HomePage from "pages/HomePage";
 import { getProfile } from "services/user";
 
 const Router = () => {
-    const { data, isLoading, error } = useQuery(["profile"], getProfile);
-    console.log({data, isLoading, error});
+    const { data, isLoading, error } = useQuery({
+        queryKey: ["profile"],
+        queryFn: () => getProfile,
+    });
+    // console.log({ data, isLoading, error });
+
+    if (isLoading) return <h1>Loading...</h1>
 
     return (
         <Routes>
