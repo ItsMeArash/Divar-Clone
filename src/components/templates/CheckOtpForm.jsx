@@ -5,6 +5,8 @@ import { checkOtp } from "services/auth";
 import { getProfile } from "services/user";
 import { setCookie } from "utils/cookie";
 
+import styles from "./CheckOtpForm.module.css";
+
 const CheckOtpForm = ({ code, setCode, mobile, setIsSent }) => {
     const navigate = useNavigate();
     const { refetch } = useQuery(["profile"], getProfile);
