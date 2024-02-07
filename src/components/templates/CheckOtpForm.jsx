@@ -29,7 +29,7 @@ const CheckOtpForm = ({ code, setCode, mobile, setIsSent }) => {
     };
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className={styles.form}>
             <p>تایید کد ارسال شده</p>
             <span>کد ارسال‌شده به شماره «{mobile}» را وارد کنید</span>
             <label htmlFor="input">کد تایید را وارد کنید</label>
@@ -41,7 +41,7 @@ const CheckOtpForm = ({ code, setCode, mobile, setIsSent }) => {
                 onChange={(event) => setCode(event.target.value)}
             />
             <button type="submit">ورود</button>
-            <button onClick={() => setIsSent(false)}>تغییر شماره موبایل</button>
+            <button onClick={() => setIsSent(false)} className={styles.backButton}>تغییر شماره موبایل</button>
         </form>
     );
 };
