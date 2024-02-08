@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addCategory } from "services/admin";
 
 const CategoryForm = () => {
-    const [formData, setFormData] = useState({
+    const [formDetails, setFormDetails] = useState({
         name: "",
         slug: "",
         icon: "",
@@ -17,15 +17,15 @@ const CategoryForm = () => {
     });
 
     const changeHandler = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
+        setFormDetails({ ...formDetails, [event.target.name]: event.target.value });
     };
 
     const submitHandler = (event) => {
         event.preventDefault();
 
-        if (!formData.name || !formData.slug || !formData.icon) return;
+        if (!formDetails.name || !formDetails.slug || !formDetails.icon) return;
 
-        mutate(formData);
+        mutate(formDetails);
     };
 
     return (
