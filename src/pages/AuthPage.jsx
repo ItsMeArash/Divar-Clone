@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckOtpForm from "components/templates/CheckOtpForm";
 import SendOtpForm from "components/templates/SendOtpForm";
 
@@ -6,7 +6,9 @@ const AuthPage = () => {
     const [isSent, setIsSent] = useState(false);
     const [mobile, setMobile] = useState("");
     const [code, setCode] = useState("");
-
+    useEffect(() => {
+        console.log(isSent);
+    }, [isSent]);
     return (
         <div>
             {isSent ? (
