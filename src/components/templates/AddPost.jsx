@@ -14,7 +14,7 @@ const AddPost = () => {
         category: "",
         city: "",
         amount: null,
-        image: null,
+        images: null,
     });
 
     const { data } = useQuery(["get-categories"], getCategory);
@@ -22,7 +22,7 @@ const AddPost = () => {
     const changeHandler = (event) => {
         const name = event.target.name;
 
-        if (name !== "image") {
+        if (name !== "images") {
             setFormDetails({ ...formDetails, [name]: event.target.value });
         } else {
             setFormDetails({ ...formDetails, [name]: event.target.files[0] });
@@ -46,7 +46,7 @@ const AddPost = () => {
                 },
             })
             .then((response) => toast.success(response.data.message))
-            .catch((error) => toast.error("مشکلی پیش آمده است!"));
+            .catch(() => toast.error("مشکلی پیش آمده است!"));
     };
 
     return (
@@ -68,8 +68,8 @@ const AddPost = () => {
                     </option>
                 ))}
             </select>
-            <label htmlFor="image">عکس</label>
-            <input type="file" name="image" id="image" />
+            <label htmlFor="images">عکس</label>
+            <input type="file" name="images" id="images" />
 
             <button onClick={addHandler}>ایجاد</button>
         </form>
